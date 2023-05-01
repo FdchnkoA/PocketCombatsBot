@@ -5,17 +5,22 @@ from PIL import ImageGrab
 from tkinter import *
 
 root = Tk()
+display_height = root.winfo_screenheight()
+display_width = root.winfo_screenwidth()
 
-mon_height = root.winfo_screenheight()
-mon_widht = root.winfo_screenwidth()
+DisplaySize = [display_height, display_width]
+print(DisplaySize)
 
-DisplaySize = [mon_height, mon_widht]
+MemuWindow_width = display_height // 1.78
 
-ActiveWindow_Y = mon_height / 1.78
+EmulatorDisplaySize = [MemuWindow_width, display_height]
 
-EmulatorDisplaySize = [ActiveWindow_Y, mon_widht]
+print("Размеры активного окна эмулятора: " + str(EmulatorDisplaySize))
 
-print(EmulatorDisplaySize)
+MemuWindow_CoordinateUp = display_width // 2 - MemuWindow_width // 2
+MemuWindow_CoordinateDown = display_width // 2 + MemuWindow_width // 2
+print(str(int(MemuWindow_CoordinateUp)) + "x" + str(0), str(int(MemuWindow_CoordinateDown)) + 'x' + str(1800))
 
-base_screen = ImageGrab.grab(bbox=(0, 0, 3200, 1920))
-base_screen.save('/Users/Andrew/Documents/GitHub/PocketCombatsBot/base_screen.png')
+
+#base_screen = ImageGrab.grab(bbox=(0, 0, 3200, 1920))
+#base_screen.save('/Users/Andrew/Documents/GitHub/PocketCombatsBot/base_screen.png')
